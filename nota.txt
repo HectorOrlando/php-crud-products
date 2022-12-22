@@ -1,0 +1,10 @@
+enlaces:
+https://github.com/search?q=php+crud+poo
+https://github.com/ofaaoficial/php-mvc-pdo-CRUD/blob/master/views/index/modals.php
+
+vídeo: https://youtu.be/3PAKPwKJnKM
+quede en el minuto 1:23:00
+pete en index  1:16:16
+ultimo  1:48:00
+
+ya se crea el producto en la base de datos.
