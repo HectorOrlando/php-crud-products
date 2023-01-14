@@ -1,5 +1,6 @@
 <?php
-require_once("C:/xampp/htdocs/php-crud-products/view/head/head.php");
+require_once("/xampp/htdocs/php-crud-products/src/view/layouts/header.php");
+require_once("/xampp/htdocs/php-crud-products/src/Infrastructure/Controllers/CreateProductController.php");
 ?>
 
 <form action="store.php" method="POST" autocomplete="off">
@@ -20,7 +21,6 @@ require_once("C:/xampp/htdocs/php-crud-products/view/head/head.php");
     <a class="btn btn-danger" href="/../php-crud-products/index.php">Cancel</a>
 </form>
 
-
 <?php
-require_once("C:/xampp/htdocs/php-crud-products/view/head/footer.php");
+require_once("/xampp/htdocs/php-crud-products/src/view/layouts/footer.php");
 ?>

@@ -1,5 +1,13 @@
 <?php
-class db
+
+declare(strict_types=1);
+
+namespace Infrastructure\Connections\Mysql;
+
+use PDO;
+use PDOException;
+
+class Connection
 {
     private $host = "localhost";
     private $dbname = "crud_products";

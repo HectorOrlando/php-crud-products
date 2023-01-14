@@ -18,7 +18,8 @@
     <div class="container-fluid bg-dark p-2 mb-3">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../../../php-crud-products/index.php">HOME</a>
+                <a class="navbar-brand" href="../../../../php-crud-products/src/view/index.php">HOME</a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -29,9 +30,8 @@
                                 CRUD PRODUCTS
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../../../php-crud-products/view/product/show.php">Show Product</a></li>
-                                <li><a class="dropdown-item" href="../../../php-crud-products/view/product/create.php">Create Product</a></li>
-                                <li><a class="dropdown-item" href="../../../php-crud-products/view/product/delete.php">Delete Product</a></li>
+                                <li><a class="dropdown-item" href="../../../../php-crud-products/src/view/product/index.php">Show Product</a></li>
+                                <li><a class="dropdown-item" href="../../../../php-crud-products/src/view/product/create.php">Create Product</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -1,9 +1,14 @@
 <?php
-require_once "C:/xampp/htdocs/php-crud-products/view/head/head.php";
-require_once("C:/xampp/htdocs/php-crud-products/controller/productController.php");
-$obj = new productController();
-$id = $_GET["id"];
-$data = $obj->show($id);
+
+declare(strict_types=1);
+
+use Infrastructure\Controllers\ReadProductController;
+
+require_once("/xampp/htdocs/php-crud-products/src/view/layouts/header.php");
+require_once("/xampp/htdocs/php-crud-products/src/Infrastructure/Controllers/ReadProductController.php");
+
+$controller = new ReadProductController();
+$dataOfProductById = $controller->readProductById();
 ?>
 
 <h2 class="text-center">PRODUCT DETAILS</h2>
@@ -19,13 +24,13 @@ $data = $obj->show($id);
     </thead>
     <tbody>
         <tr>
-            <td scope="row"><?= $data["id"] ?></td>
-            <td><?= $data["name"] ?></td>
-            <td><?= $data["price"] ?></td>
-            <td><?= ($data["active"]) ? "ACTIVE" : "DISABLED" ?></td>
+            <td scope="row"><?= $dataOfProductById->getId() ?></td>
+            <td><?= $dataOfProductById->getName() ?></td>
+            <td><?= $dataOfProductById->getPrice() ?></td>
+            <td><?= ($dataOfProductById->getActive()) ? "ACTIVE" : "DISABLED" ?></td>
             <td>
                 <a class="btn btn-primary" href="index.php">HOME</a>
-                <a class="btn btn-success" href="edit.php?id=<?= $data["id"] ?>">UPDATE</a>
+                <a class="btn btn-success" href="edit.php?id=<?= $dataOfProductById->getId() ?>">UPDATE</a>
                 <!-- Button trigger modal -->
                 <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">DELETE</a>
 
@@ -42,7 +47,7 @@ $data = $obj->show($id);
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-success" data-bs-dismiss="modal">CLOSE</button>
-                                <a class="btn btn-danger" href="delete.php?id=<?= $data["id"] ?>">DELETE</a>
+                                <a class="btn btn-danger" href="delete.php?id=<?= $dataOfProductById->getId() ?>">DELETE</a>
                             </div>
                         </div>
                     </div>
@@ -53,5 +58,5 @@ $data = $obj->show($id);
 </table>
 
 <?php
-require_once "C:/xampp/htdocs/php-crud-products/view/head/footer.php";
+require_once("/xampp/htdocs/php-crud-products/src/view/layouts/footer.php");
 ?>
