@@ -17,8 +17,9 @@ class RemoveProductById
         $this->productRepository = $productRepository;
     }
 
-    public function deleteProductById(int $id)
+    public function deleteProductById($id)
     {
-        return $this->productRepository->deleteProductById($id);
+        
+        ($this->productRepository->deleteProductById($id))  ? header("Location:index.php") : header("Location:show.php?id=$id");
     }
 }

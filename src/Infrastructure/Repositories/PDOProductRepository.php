@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Infrastructure\Repositories;
 
+use Domain\CreateProductRepositoryInterface;
 use Domain\Product;
 use Domain\ProductRepository;
 use Infrastructure\Connections\Mysql\Connection;

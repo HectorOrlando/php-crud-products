@@ -31,9 +31,8 @@ $dataOfProductById = $controller->readProductById();
         <label class="form-check-label" for="check-active">Active Product / Disable Product</label>
     </div>
     <hr>
-    <!-- <a class="btn btn-success" href="./update.php?id=<?= $id ?>">UPDATE</a> -->
     <input type="submit" class="btn btn-primary" value="Update Product">
-    <a class="btn btn-danger" href="show.php?id=<?= $id ?>">Cancel</a>
+    <a class="btn btn-danger" href="show.php?id=<?= $dataOfProductById->getId() ?>">Cancel</a>
 </form>
 
 <?php

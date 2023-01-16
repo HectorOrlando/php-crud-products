@@ -16,14 +16,12 @@ class UpdateProductController
 {
     public function updateProductById()
     {
-        $id = $_POST["id"];
+        $id = (int)$_POST["id"];
         $name =  $_POST["name"];
         $price =  $_POST["price"];
         $active = isset($_POST["active"]) ? 1 : 0;
-        $product = new Product($id, $name, $price, $active);
-        $id = (int)$product->getId();
         $productRepository = new PDOProductRepository();
-        $createProductService = new UpdateProductById($productRepository);
-        ($createProductService->updateProductById($id, $product)) ? header("Location:show.php?id=$id") : header("Location:index.php");
+        $updateProductService = new UpdateProductById($productRepository);
+        $updateProductService->updateProductById($id, $name, $price, $active);
     }
 }

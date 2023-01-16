@@ -38,4 +38,9 @@ class Product
     {
         return $this->active;
     }
+    
+    public static function create($id, $name, $price, $active): Product
+    {
+        return new Product($id, $name, $price, $active);
+    }
 }

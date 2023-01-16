@@ -19,8 +19,9 @@ class UpdateProductById
         $this->productRepository = $productRepository;
     }
 
-    public function updateProductById(int $id, Product $product): bool
+    public function updateProductById($id, $name, $price, $active)
     {
-        return $this->productRepository->updateProductById($id, $product);
+        $product = Product::create($id, $name, $price, $active);
+        return ($this->productRepository->updateProductById($id, $product)) ? header("Location:show.php?id=$id") : header("Location:index.php");
     }
 }

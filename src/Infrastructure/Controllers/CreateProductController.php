@@ -16,15 +16,13 @@ class CreateProductController
 {
     public function createProduct()
     {
-
         $id = null;
         $name = $_POST["name"];
         $price = $_POST["price"];
         $active = ($_POST["active"] == "on") ? 1 : 0;
-        $product = new Product($id, $name, $price, $active);
 
         $productRepository = new PDOProductRepository();
         $createService = new CreateProduct($productRepository);
-        ($createService->createProduct($product)) ? header("Location:index.php") : header("Location:index.php");
+        ($createService->create($id, $name, $price, $active)) ? header("Location:index.php") : header("Location:index.php");
     }
 }

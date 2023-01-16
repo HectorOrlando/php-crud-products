@@ -19,14 +19,14 @@ class ReadProductController
     {
         $id = (int)$_GET["id"];
         $productRepository = new PDOProductRepository();
-        $createService = new ReadProductById($productRepository);
-        return $createService->getProductById($id);
+        $readService = new ReadProductById($productRepository);
+        return $readService->getProductById($id);
     }
 
     public function readAllProducts()
     {
         $productRepository = new PDOProductRepository();
-        $createService = new ReadAllProducts($productRepository);
-        return $createService->getAllProducts();
+        $readService = new ReadAllProducts($productRepository);
+        return $readService->getAllProducts();
     }
 }
