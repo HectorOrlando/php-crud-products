@@ -1,6 +1,5 @@
 <?php
 require_once("/xampp/htdocs/php-crud-products/src/view/layouts/header.php");
-require_once("/xampp/htdocs/php-crud-products/src/Infrastructure/Controllers/CreateProductController.php");
 ?>
 
 <form action="store.php" method="POST" autocomplete="off">

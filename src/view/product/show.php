@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-use Infrastructure\Controllers\ReadProductController;
+use Infrastructure\Controllers\ProductController;
 
 require_once("/xampp/htdocs/php-crud-products/src/view/layouts/header.php");
-require_once("/xampp/htdocs/php-crud-products/src/Infrastructure/Controllers/ReadProductController.php");
+require_once("/xampp/htdocs/php-crud-products/src/Infrastructure/Controllers/ProductController.php");
 
-$controller = new ReadProductController();
+$controller = new ProductController();
 $dataOfProductById = $controller->readProductById();
 ?>
 

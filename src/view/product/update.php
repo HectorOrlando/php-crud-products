@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use Infrastructure\Controllers\UpdateProductController;
+use Infrastructure\Controllers\ProductController;
 
-require_once("/xampp/htdocs/php-crud-products/src/Infrastructure/Controllers/UpdateProductController.php");
+require_once("/xampp/htdocs/php-crud-products/src/Infrastructure/Controllers/ProductController.php");
 
-$controller = new UpdateProductController();
+$controller = new ProductController();
 $controller->updateProductById();
