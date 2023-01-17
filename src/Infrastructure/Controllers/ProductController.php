@@ -34,7 +34,7 @@ class ProductController
         $price = $_POST["price"];
         $active = ($_POST["active"] == "on") ? 1 : 0;
         $createService = new CreateProduct($this->productRepository);
-        ($createService->create($id, $name, $price, $active)) ? header("Location:index.php") : header("Location:index.php");
+        ($createService->createProduct($id, $name, $price, $active)) ? header("Location:index.php") : header("Location:index.php");
     }
 
     public function deleteProductById()

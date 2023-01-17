@@ -19,9 +19,8 @@ class CreateProduct
         $this->productRepository = $productRepository;
     }
 
-    public function create($id, $name, $price, $active): bool
+    public function createProduct($id, $name, $price, $active): bool
     {
-        
         return $this->productRepository->createProduct(Product::create($id, $name, $price, $active));
     }
 }
