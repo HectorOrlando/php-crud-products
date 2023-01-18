@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Application;
 
-use Domain\Product;
+use Application\Dto\ProductDTO;
+use Application\Mapper\ProductMapper;
 use Domain\ProductRepository;
 
-require_once("/xampp/htdocs/php-crud-products/src/Domain/Product.php");
 require_once("/xampp/htdocs/php-crud-products/src/Domain/ProductRepository.php");
+require_once("/xampp/htdocs/php-crud-products/src/Application/Dto/ProductDTO.php");
+require_once("/xampp/htdocs/php-crud-products/src/Application/Mapper/ProductMapper.php");
 
 class CreateProduct
 {
@@ -19,8 +21,9 @@ class CreateProduct
         $this->productRepository = $productRepository;
     }
 
-    public function createProduct($id, $name, $price, $active): bool
+    public function createProduct(ProductDTO $productDTO): bool
     {
-        return $this->productRepository->createProduct(Product::create($id, $name, $price, $active));
+        $product = ProductMapper::toEntity($productDTO);
+        return $this->productRepository->createProduct($product);
     }
 }

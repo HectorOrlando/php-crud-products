@@ -10,6 +10,9 @@ use Application\RemoveProductById;
 use Application\UpdateProductById;
 use Application\ReadAllProducts;
 use Application\ReadProductById;
+use Application\Dto\ProductDTO;
+use Application\Dto\DeleteProductDTO;
+use Application\Dto\ReadProductDTO;
 
 require_once("/xampp/htdocs/php-crud-products/src/Infrastructure/Repositories/PDOProductRepository.php");
 require_once("/xampp/htdocs/php-crud-products/src/Application/CreateProduct.php");
@@ -17,6 +20,9 @@ require_once("/xampp/htdocs/php-crud-products/src/Application/RemoveProductById.
 require_once("/xampp/htdocs/php-crud-products/src/Application/UpdateProductById.php");
 require_once("/xampp/htdocs/php-crud-products/src/Application/ReadAllProducts.php");
 require_once("/xampp/htdocs/php-crud-products/src/Application/ReadProductById.php");
+require_once("/xampp/htdocs/php-crud-products/src/Application/Dto/ProductDTO.php");
+require_once("/xampp/htdocs/php-crud-products/src/Application/Dto/DeleteProductDTO.php");
+require_once("/xampp/htdocs/php-crud-products/src/Application/Dto/ReadProductDTO.php");
 
 class ProductController
 {
@@ -33,15 +39,18 @@ class ProductController
         $name = $_POST["name"];
         $price = $_POST["price"];
         $active = ($_POST["active"] == "on") ? 1 : 0;
+
+        $productDto = new ProductDTO($id, $name, $price, $active);
         $createService = new CreateProduct($this->productRepository);
-        ($createService->createProduct($id, $name, $price, $active)) ? header("Location:index.php") : header("Location:index.php");
+        ($createService->createProduct($productDto)) ? header("Location:index.php") : header("Location:index.php");
     }
 
     public function deleteProductById()
     {
         $id = (int)$_GET["id"];
+        $deleteProductDTO = new DeleteProductDTO($id);
         $deleteService = new RemoveProductById($this->productRepository);
-        $deleteService->deleteProductById($id);
+        $deleteService->deleteProductById($deleteProductDTO->getId());
     }
 
     public function updateProductById()
@@ -51,7 +60,8 @@ class ProductController
         $price =  $_POST["price"];
         $active = isset($_POST["active"]) ? 1 : 0;
         $updateProductService = new UpdateProductById($this->productRepository);
-        $updateProductService->updateProductById($id, $name, $price, $active);
+        $productDto = new ProductDTO($id, $name, $price, $active);
+        $updateProductService->updateProductById($productDto);
     }
 
     public function readAllProducts()
@@ -63,7 +73,8 @@ class ProductController
     public function readProductById()
     {
         $id = (int)$_GET["id"];
+        $readProductDTO = new ReadProductDTO($id);
         $readService = new ReadProductById($this->productRepository);
-        return $readService->getProductById($id);
+        return $readService->getProductById($readProductDTO->getId());
     }
 }
